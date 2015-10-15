@@ -7,12 +7,12 @@
 //
 
 import Foundation
-
-extension String {
-    var length : Int{
-        return self.characters.count
-    }
-}
+//
+//extension String {
+//    var length : Int{
+//        return self.characters.count
+//    }
+//}
 
 func input() -> String {
     var keyboard = NSFileHandle.fileHandleWithStandardInput()
@@ -33,31 +33,58 @@ struct Restaraunt {
 
 }
 
+
+
 var rest1 = Restaraunt(name: "pelmennaya #1",address: "address of pelmennaya", raiting: 100000000)
 println(rest1.simpleDescription())
 var isTrue: Bool = true;
-var restaurnts = [Restaraunt]();
+
+var restarauntDict = [String: Restaraunt]();
 
 while isTrue {
     let command = input()
-    
     print(command)
+    
+    
     switch command {
     case "add\n":
         print("name ")
         var name = input()
-        name = na substringToIndex(name.length - 1)
+        name = name.substringToIndex(name.endIndex.predecessor())
+        
         print("address ")
         var address = input()
-        name = name.substringToIndex(name.length - 1)
+        address = address.substringToIndex(address.endIndex.predecessor())
+        
         print("raiting ")
         var raiting: Float = NSString(string: input()).floatValue
-        restaurnts.append(Restaraunt(name: name,address: address, raiting: raiting))
+        restarauntDict[name] = Restaraunt(name: name,address: address, raiting: raiting)
+    
     case "show\n":
-        print(restaurnts.count)
-        for var i = 0; i < restaurnts.count ; ++i
+        for (name, rest) in restarauntDict
         {
-            println(restaurnts[i].simpleDescription())
+            println(rest.simpleDescription())
+        }
+    case "tip\n":
+        print("enter restaurant name ")
+        var name = input()
+        name = name.substringToIndex(name.endIndex.predecessor())
+        
+        var tmpRestaurant = restarauntDict[name]
+        if let currentRestaurant = tmpRestaurant {
+            
+            print("enter summ in check ")
+            var sum: Float = NSString(string: input()).floatValue
+            
+            print("enter impression from 1 to 10 ")
+            var impression: Float = NSString(string: input()).floatValue
+            
+            var tipReccomendation = sum*0.01 + currentRestaurant.raiting*0.5 + impression*0.5;
+            
+            print("Tip reccomendation is \(tipReccomendation)")
+        }
+        else {
+            print("There is no restaraunt with name \(name) in database")
         }
     case "exit\n":
         isTrue = false
