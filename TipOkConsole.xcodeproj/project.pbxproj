@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		A9B1232D1BCFD47100B67C62 /* TipOkConsole */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TipOkConsole; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B123301BCFD47100B67C62 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A9B123371BCFD59F00B67C62 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				A9B123301BCFD47100B67C62 /* main.swift */,
+				A9B123371BCFD59F00B67C62 /* MyPlayground.playground */,
 			);
 			path = TipOkConsole;
 			sourceTree = "<group>";
